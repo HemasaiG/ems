@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Employee Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Email Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of employees">
+      <td scope="col">{{e.id}}</td>
+      <td scope="col">{{e.firstName}}</td>
+      <td scope="col">{{e.lastName}}</td>
+      <td scope="col">{{e.age}}</td>
+      <td scope="col">{{e}}</td>
+
+    </tr>
+  </tbody>
+</table>
