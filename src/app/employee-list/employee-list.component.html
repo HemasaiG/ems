@@ -1,3 +1,5 @@
+
+<div class="container">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -6,6 +8,7 @@
       <th scope="col">Last Name</th>
       <th scope="col">Age</th>
       <th scope="col">Email Id</th>
+      <th scope="col" style="align-items:center" >Action</th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +17,14 @@
       <td scope="col">{{e.firstName}}</td>
       <td scope="col">{{e.lastName}}</td>
       <td scope="col">{{e.age}}</td>
-      <td scope="col">{{e}}</td>
+      <td scope="col">{{e.emailId}}</td>
+      <td scope="col" style="align-items:flex-start">
+        <button class="btn btn-secondary" [routerLink]="['/employee/details',e.id]">View</button>
+        <button [routerLink]="['/employee/update',e.id]" style="margin-left: 10px;" class="btn btn-info">Update</button>
+        <button class="btn btn-danger" style="margin-left: 10px;" (click)="delete(e.id)">Delete</button>
+      </td>
 
     </tr>
   </tbody>
 </table>
+</div>

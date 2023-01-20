@@ -8,10 +8,26 @@ import { Employee } from './employee';
 })
 export class BackendService {
 
-  private baseurl="http://localhost:3002/api/employees";
+  private baseurl="http://localhost:4000/api/employees";
   constructor(private http:HttpClient) { }
 
   getEmployeesList():Observable<Employee[]>{
-    return this.http.get<Employee[]>('http://localhost:3000/api/employees');
+    return this.http.get<Employee[]>(this.baseurl);
+  }
+
+  createEmployee(employee:Employee):Observable<Object>{
+    return this.http.post<Object>(this.baseurl,employee);
+  }
+
+  getEmployeeById(eid:number):Observable<Employee>{
+    return this.http.get<Employee>(this.baseurl+"/"+eid);
+  }
+
+  updateEmployee(employee:Employee):Observable<Employee>{
+    return this.http.put<Employee>(this.baseurl+"/update",employee);
+  }
+
+  deleteEmployee(eid:number){
+    return this.http.delete(this.baseurl+"/delete/"+eid);
   }
 }

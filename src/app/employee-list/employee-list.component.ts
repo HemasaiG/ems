@@ -22,5 +22,17 @@ export class EmployeeListComponent implements OnInit {
     );
   }
 
+  delete(eid:number){
+    alert("Are you Sure You want to delete")
+    this.service.deleteEmployee(eid).subscribe((data)=> {
+      console.log(data)
+      this.getAllEmployees();
+    },
+    (err)=>console.error(err),
+    ()=> console.log("Completed"));
+  }
 
+  view(eid:number){
+    this.service.getEmployeeById(eid).subscribe()
+  }
 }
